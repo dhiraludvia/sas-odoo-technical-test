@@ -20,6 +20,7 @@
             <header>
                 <button name="create_po" string="Create PO" type="object" class="btn-primary" 
                     attrs="{'invisible': [('with_po', '!=', True)]}"/>
+                <button name="import_so_lines" string="Import SO Lines" type="object" class="btn-primary" />
             </header>
         </field>
     </record>

@@ -11,7 +11,7 @@ class SaleOrder(models.Model):
     with_po = fields.Boolean(string='With PO')
     purchase_ids = fields.One2many('purchase.order', 'partner_id', string='Purchase Order Lines')
     
-    @api.onchange('purchase_ids')
+    
     def create_po(self):
         vals = {
             'partner_id':self.request_vendor.id
@@ -21,4 +21,7 @@ class SaleOrder(models.Model):
     def action_confirm(self):
         if self.env['no_kontrak'].search([('id','=',record.id)]):
             raise Warning("You can't have the same No Kontrak!")
+    
+    def import_so_lines(self):
+        pass
         
